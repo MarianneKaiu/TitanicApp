@@ -1,0 +1,26 @@
+<div *ngIf="!passengerList">
+  <h1>14 avril 1912</h1>
+  <h2>Naufrage du Titanic</h2>
+  <p>
+    Le Titanic sombre au cours de son voyage inaugural, dans la nuit du 14 au 15
+    avril 1912. C'est la catastrophe maritime la plus médiatique de tous les
+    temps.
+  </p>
+  <div>
+    <p>
+      Lors du naufrage, <strong>{{ quantity }}</strong> passagers etaient à son
+      bord, et leurs moyenne d'age était de <strong>{{ moyAgeS }} ans</strong>.
+    </p>
+  </div>
+  <button (click)="passengerList = true">
+    Afficher la liste des passagers
+  </button>
+</div>
+<div *ngIf="passengerList">
+  <h1>Liste des passagers du Titanic</h1>
+  <button (click)="passengerList = false">
+    Masquer la liste des passagers
+  </button>
+  <app-search></app-search>
+  <app-survivors></app-survivors>
+</div>
