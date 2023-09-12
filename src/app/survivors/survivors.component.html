@@ -1,33 +1,37 @@
 <!-- La page **survived** affichera l'ensemble des survivants, affichez pour chaque passager leur age, le sex et la classe. -->
-
-<ul *ngIf="titanicPassengers">
-  <li *ngFor="let passenger of titanicPassengers" class="card">
-    <h2>{{ passenger.Name }}</h2>
-    <!-- [ngSwitch] me permet de changer le <p> en fonction du sexe de la personne -->
-    <p [ngSwitch]="passenger.Sex">
-      <ng-template ngSwitchCase="female">
-        {{ passenger.Name }}, de sexe féminin, avait {{ passenger.Age }} ans
-        lors du naufrage du Titanic, et voyageais en
-        <!-- Je vais remettre un ng-template switch case pour l'affichage de la première deuxième et troisième classe -->
-        <span [ngSwitch]="passenger.Pclass">
-          <ng-template ngSwitchCase="1">première</ng-template>
-          <ng-template ngSwitchCase="2">deuxième</ng-template>
-          <ng-template ngSwitchCase="3">troisième</ng-template>
-        </span>
-        classe.</ng-template
-      >
-      <ng-template ngSwitchCase="male">
-        {{ passenger.Name }}, de sexe masculin, avait {{ passenger.Age }} ans
-        lors du naufrage du Titanic, et voyageait en
-        <!-- Je vais remettre un ng-template switch case pour l'affichage de la première deuxième et troisième classe -->
-        <span [ngSwitch]="passenger.Pclass">
-          <ng-template ngSwitchCase="1">première</ng-template>
-          <ng-template ngSwitchCase="2">deuxième</ng-template>
-          <ng-template ngSwitchCase="3">troisième</ng-template>
-        </span>
-        classe.
-      </ng-template>
-    </p>
-    <!-- FIN du switch -->
-  </li>
-</ul>
+<div>
+  <ul *ngIf="titanicPassengers" class="list-group list-group-flush">
+    <li
+      *ngFor="let passenger of titanicPassengers"
+      class="card list-group-item"
+    >
+      <h2>{{ passenger.Name }}</h2>
+      <!-- [ngSwitch] me permet de changer le <p> en fonction du sexe de la personne -->
+      <p [ngSwitch]="passenger.Sex">
+        <ng-template ngSwitchCase="female">
+          {{ passenger.Name }}, de sexe féminin, avait {{ passenger.Age }} ans
+          lors du naufrage du Titanic, et voyageais en
+          <!-- Je vais remettre un ng-template switch case pour l'affichage de la première deuxième et troisième classe -->
+          <span [ngSwitch]="passenger.Pclass">
+            <ng-template ngSwitchCase="1">première</ng-template>
+            <ng-template ngSwitchCase="2">deuxième</ng-template>
+            <ng-template ngSwitchCase="3">troisième</ng-template>
+          </span>
+          classe.</ng-template
+        >
+        <ng-template ngSwitchCase="male">
+          {{ passenger.Name }}, de sexe masculin, avait {{ passenger.Age }} ans
+          lors du naufrage du Titanic, et voyageait en
+          <!-- Je vais remettre un ng-template switch case pour l'affichage de la première deuxième et troisième classe -->
+          <span [ngSwitch]="passenger.Pclass">
+            <ng-template ngSwitchCase="1">première</ng-template>
+            <ng-template ngSwitchCase="2">deuxième</ng-template>
+            <ng-template ngSwitchCase="3">troisième</ng-template>
+          </span>
+          classe.
+        </ng-template>
+      </p>
+      <!-- FIN du switch -->
+    </li>
+  </ul>
+</div>

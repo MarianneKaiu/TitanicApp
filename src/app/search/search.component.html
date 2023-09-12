@@ -1,12 +1,19 @@
 <div>
-  <h3>N'afficher que les passagers :</h3>
-  <button (click)="getSurvivors('0')">Décédés</button>
-  <button (click)="getSurvivors('1')">Survivants</button>
-  <button (click)="all()">Tous</button>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <h3>N'afficher que les passagers :</h3>
+
+    <button (click)="getSurvivors('0')" class="btn btn-outline-secondary">
+      Décédés
+    </button>
+    <button (click)="getSurvivors('1')" class="btn btn-outline-secondary">
+      Survivants
+    </button>
+    <button (click)="all()" class="btn btn-outline-secondary">Tous</button>
+  </div>
   <p>Il y en a eu {{ quantity }}</p>
 </div>
-<ul *ngIf="titanicPassengers">
-  <li *ngFor="let passenger of titanicPassengers" class="card">
+<ul *ngIf="titanicPassengers" class="list-group list-group-flush">
+  <li *ngFor="let passenger of titanicPassengers" class="card list-group-item">
     <h2>{{ passenger.Name }}</h2>
     <!-- [ngSwitch] me permet de changer le <p> en fonction du sexe de la personne -->
     <p [ngSwitch]="passenger.Sex">

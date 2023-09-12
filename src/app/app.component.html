@@ -1,4 +1,4 @@
-<div *ngIf="!passengerList">
+<div *ngIf="!passengerList" class="container-fluid">
   <h1>14 avril 1912</h1>
   <h2>Naufrage du Titanic</h2>
   <p>
@@ -12,13 +12,13 @@
       bord, et leurs moyenne d'age était de <strong>{{ moyAgeS }} ans</strong>.
     </p>
   </div>
-  <button (click)="passengerList = true">
+  <button (click)="passengerList = true" class="btn btn-outline-secondary">
     Afficher la liste des passagers
   </button>
 </div>
 <div *ngIf="passengerList">
   <h1>Liste des passagers du Titanic</h1>
-  <button (click)="passengerList = false">
+  <button (click)="passengerList = false" class="btn btn-outline-secondary">
     Masquer la liste des passagers
   </button>
   <app-search></app-search>
